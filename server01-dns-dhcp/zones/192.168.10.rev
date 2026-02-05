@@ -1,0 +1,31 @@
+$TTL 86400
+@   IN  SOA server01.providence.lan. admin.providence.lan. (
+        2026013002 ; Serial (YYYYMMDDnn)
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Negative Cache TTL
+
+; ======================================================
+; ZONE INVERSE : 192.168.10.0/24
+; Fichier      : 192.168.10.rev
+; Rôle         : Résolution IP -> Nom (reverse DNS)
+; Serveur DNS  : server01.providence.lan
+; ======================================================
+
+; ----------------------
+; SERVEUR DE NOMS
+; ----------------------
+@       IN  NS  server01.providence.lan.
+
+; ----------------------
+; ENREGISTREMENTS PTR
+; ----------------------
+
+10  IN  PTR server01.providence.lan.   ; DNS / DHCP
+15  IN  PTR dc1.providence.lan.        ; Contrôleur de domaine AD
+20  IN  PTR monitor.providence.lan.    ; Supervision
+30  IN  PTR files.providence.lan.      ; Serveur de fichiers
+40  IN  PTR mail.providence.lan.       ; Messagerie
+50  IN  PTR webapp.providence.lan.     ; Web / Application
+60  IN  PTR vpn.providence.lan.         ; VPN
