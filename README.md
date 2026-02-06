@@ -22,10 +22,11 @@ Projet de type **entreprise**, simulant un environnement réel pour l’administ
 ---
 
 ## Technologies utilisées
-- **Linux** : Rocky Linux / Red Hat 9  
+- **Linux** : Ubuntu 24.06 / Red Hat 9  
 - **Windows Server** : AD DS  
 - **DNS** : BIND9  
 - **DHCP** : ISC DHCP Server  
 - **Samba** : Partage fichiers et intégration AD  
 - **Web** : Apache / PHP  
 - **Mail** :
+
