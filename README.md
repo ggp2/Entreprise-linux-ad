@@ -1,4 +1,4 @@
-# Enterprise Linux & Windows AD Infrastructure
+# Mise en place d’une infrastructure d’authentification centralisée Linux/Windows avec Active Directory
 
 ## Objectif du projet
 Concevoir et déployer une infrastructure d’entreprise **on-premise** basée sur **Linux et Windows Server**, intégrant des services essentiels :  
@@ -29,4 +29,5 @@ Projet de type **entreprise**, simulant un environnement réel pour l’administ
 - **Samba** : Partage fichiers et intégration AD  
 - **Web** : Apache / PHP  
 - **Mail** :
+
 
