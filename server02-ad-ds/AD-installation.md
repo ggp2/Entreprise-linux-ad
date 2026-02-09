@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Installation du rôle Active Directory (AD DS)
 
 ##  Objectif
@@ -27,6 +28,19 @@ Linux et Windows.
 - Nom d’hôte défini (dc1.providence.lan)
 
 ---
+=======
+# Installation Active Directory – DC1
+
+## 1- Préparation
+
+
+- IP statique : 192.168.10.15
+- DNS : 192.168.10.10
+- Nom du serveur : dc1
+---
+## 2- Installation du rôle AD DS
+Via PowerShell :
+>>>>>>> 026dfeaacd59c55c9c8c173d2986c76fd9892bb5
 
 ## 2. Installation du rôle AD DS
 
@@ -67,6 +81,7 @@ Sur le contrôleur de domaine, la carte réseau doit utiliser **uniquement** le 
 Vérification :
 
 ```powershell
+<<<<<<< HEAD
 ipconfig /all
 
 
@@ -85,6 +100,30 @@ Commande de vérification :
 
 ```powershell
 dcdiag
+=======
+
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+```
+
+##3-Promotion en contrôleur de domaine
+```powershell
+Install-ADDSForest `
+-DomainName "providence.lan" `
+-DomainNetbiosName "PROVIDENCE"
+```
+
+## Verification 
+```powershell
+dcdiag
+Get-ADDomain
+```
+
+
+
+
+
+
+>>>>>>> 026dfeaacd59c55c9c8c173d2986c76fd9892bb5
 
 
 ## NB: un pdf de capture d'ecran de server hébergeant ADDS est fourni ainsi qu'un ensembele cheklist de verification

@@ -70,17 +70,18 @@ Extrait :
 security = ADS
 realm = PROVIDENCE.LAN
 workgroup = PROVIDENCE
-
+```
 ##  integration au Domaine
 la jointure est realisé  via  : net ads join -U Administrateur
 
 ## Tests de Validation
--wbinfo -t
--wbinfo -u
--wbinfo -g
--getent passwd Administrateur
+- Authentification Kerberos
+- wbinfo -t
+- wbinfo -u
+- wbinfo -g
+- getent passwd Administrateur
 
-##Dépannage et Résolution
+## Dépannage et Résolution
 les Principaux probleme rencontrés
 
 | Problème        | Cause                     | Solution             |
