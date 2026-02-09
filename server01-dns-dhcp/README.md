@@ -37,12 +37,13 @@ Il joue un rôle central dans l’intégration entre les serveurs Linux et le co
 
 ---
 ## Fichiers Principaux 
-/etc/named.conf 
-/var/named/providence.lan.zone
-/var/named/10.168.192.rev 
-/etc/resolv.conf
-
-/etc/dhcpd/dhcpd.conf
+- Attribution dynamique des adresses IP
+- /etc/named.conf
+- /var/named/providence.lan.zone
+- /var/named/10.168.192.rev
+- /etc/resolv.conf
+-
+- /etc/dhcpd/dhcpd.conf
 
 
 
