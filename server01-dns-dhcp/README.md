@@ -37,13 +37,27 @@ Il joue un rôle central dans l’intégration entre les serveurs Linux et le co
 
 ---
 ## Fichiers Principaux 
-- Attribution dynamique des adresses IP
-- /etc/named.conf
-- /var/named/providence.lan.zone
-- /var/named/10.168.192.rev
-- /etc/resolv.conf
--
-- /etc/dhcpd/dhcpd.conf
+Ces fichiers assurent la gestion centralisée de l’attribution des adresses IP
+et de la résolution des noms au sein du réseau interne.
+
+- `/etc/dhcpd/dhcpd.conf`  
+  Configuration du serveur DHCP pour l’attribution dynamique des adresses IP.
+
+- `/etc/named.conf`  
+  Fichier principal de configuration du service DNS (BIND9).
+
+- `/var/named/providence.lan.zone`  
+  Zone directe pour la résolution des noms vers les adresses IP.
+
+- `/var/named/10.168.192.rev`  
+  Zone inverse pour la résolution des adresses IP vers les noms de domaine.
+
+- `/etc/resolv.conf`  
+  Configuration du résolveur DNS utilisée par le système.
+
+Ces fichiers permettent d’assurer une communication fiable entre les serveurs,
+le contrôleur de domaine et les postes clients.
+
 
 
 
