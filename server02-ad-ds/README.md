@@ -1,46 +1,140 @@
 ## Server02 – Active Directory Domain Services (AD DS)
 
-### Présentation
-Ce serveur héberge le contrôleur de domaine principal (DC1) de l’infrastructure `providence.lan`. Il ya qu'un seul contrôleur de domaine (en entreprise il est nécessaire d'avoir un deuxième contrôleur de domaine)
+#  Infrastructure Active Directory Linux & Windows
 
-Il assure l’authentification centralisée, la gestion des utilisateurs,des groupes et l’intégration des serveurs Linux.
-Il sied est à noter que ce serveur n'aura pas de configuration DNS car déjà configuré sur le server01
+##  Présentation
 
----
-### Informations générales
+Ce projet présente la conception et la mise en œuvre d’une infrastructure
+informatique d’entreprise basée sur Linux et Windows Server, intégrant
+un domaine Active Directory avec services réseau centralisés.
 
-| Élément       | Valeur            |
-|---------------|---------------------|
-| Hostname	    | dc1.providence.lan  |
-| Adresse IP    | 192.168.10.15       |
-| OS            | Windows Server 2016 |
-| Domaine       | providence.lan      |
-| Rôle          | AD DS, Kerberos, LDAP|
+L’objectif est de simuler un environnement professionnel réel
+pour le développement de compétences en administration systèmes et réseaux.
 
 ---
 
- ### Services fournis
+##  Objectifs
 
-- Active Directory Domain Services
-- Kerberos Authentication
-- LDAP Directory
-- DNS (via serveur Linux externe)
+- Mettre en place un domaine Active Directory fonctionnel
+- Centraliser l’authentification Linux / Windows
+- Déployer des services réseau sécurisés
+- Assurer la disponibilité et la maintenabilité
+- Documenter l’infrastructure
+
+---
+
+##  Architecture Générale
+
+| Serveur  | Rôle                  | IP            |
+|----------|-----------------------|---------------|
+| server01 | DNS / DHCP (Linux)    | 192.168.10.10 |
+| dc1 	   | Contrôleur AD (Windows)| 192.168.10.15|
+| server03 | Web / App             | 192.168.10.20 |
+| server04 |                       | 192.168.10.30 |
+| server05 | Messagerie            | 192.168.10.2 0|
+| server06 | Monitoring / Backup   | 192.168.10.154|
+| server07 | Fichiers (Samba)      | 192.168.10.50 |
 
 ---
 
-  Sécurité
+##  Technologies Utilisées
 
-- Comptes administrateurs dédiés
-- Séparation utilisateurs / services
-- Stratégies de mot de passe
-- Audit des connexions
-- Journalisation
+### Systèmes
+-  RHEL 9
+- Ubuntu Server 22.04
+- Windows Server 2016
+
+### Services
+- Active Directory (AD DS)
+- DNS (BIND9)
+- DHCP
+- Samba / Winbind
+- Kerberos / SSSD
+- Apache / PHP
+- Postfix / Dovecot
+- OpenVPN / WireGuard
+- Zabbix
+
+### Virtualisation
+- VirtualBox (environnement on-premise)
 
 ---
-  Intégration Linux
 
-Les serveurs Linux sont intégrés via SSSD/Kerberos :
+##  Structure du Projet
 
 ```bash
-realm join providence.lan -U Administrateur
-authselect select sssd with-mkhomedir
+.
+├─- architecture/
+├── server01-dns-dhcp/
+├── server02-ad-ds/
+├── server03-/
+├── server04-/
+├── server05-mail/
+├── server06-monitoring/
+├── server07-samba/
+└── docs/
+
+## Sécurité
+
+-Authentification centralisée AD 
+
+-Kerberos pour Linux
+
+-Groupes AD pour contrôle d’accès
+
+-Pare-feu et VPN
+
+-Séparation des rôles serveurs
+
+## Fonctionnalités Principales
+
+-Domaine Active Directory opérationnel
+-DNS Linux externe à AD
+-Jointure Linux via SSSD/Winbind
+-Partages réseau sécurisés
+-Messagerie interne
+-Supervision réseau
+-Accès distant VPN
+
+##Documentation
+
+###Chaque serveur dispose d’une documentation dédiée :
+-Installation
+
+-Configuration
+
+-Dépannage
+
+-Bonnes pratiques
+
+Voir le dossier /docs.
+
+### Validation & Tests
+
+dcdiag
+
+nslookup / dig
+
+kinit / klist
+
+wbinfo
+
+realm list
+
+Tests Samba
+
+Tests VPN
+
+### Perspectives d’Amélioration
+
+-Haute disponibilité (HA)
+
+-PKI interne
+
+-MFA
+
+-Sauvegarde centralisée
+
+-Monitoring avancé
+
+-Cloud hybride
