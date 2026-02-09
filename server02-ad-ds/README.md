@@ -1,26 +1,25 @@
-Server02 – Active Directory Domain Services (AD DS)
+## Server02 – Active Directory Domain Services (AD DS)
 
-Présentation
-Ce serveur héberge le contrôleur de domaine principal (DC1) de
-l’infrastructure `providence.lan`. Il ya qu'un seul contrôleur de domaine (en entreprise il est nécessaire d'avoir un deuxième contrôleur de domaine)
+### Présentation
+Ce serveur héberge le contrôleur de domaine principal (DC1) de l’infrastructure `providence.lan`. Il ya qu'un seul contrôleur de domaine (en entreprise il est nécessaire d'avoir un deuxième contrôleur de domaine)
 
 Il assure l’authentification centralisée, la gestion des utilisateurs,des groupes et l’intégration des serveurs Linux.
 Il sied est à noter que ce serveur n'aura pas de configuration DNS car déjà configuré sur le server01
 
 ---
-  Informations générales
+### Informations générales
 
-| Élément       | Valeur  |
-|---------------|---------|
-| Hostname	| dc1.providence.lan |
-| Adresse IP    | 192.168.10.15      |
+| Élément       | Valeur            |
+|---------------|---------------------|
+| Hostname	    | dc1.providence.lan  |
+| Adresse IP    | 192.168.10.15       |
 | OS            | Windows Server 2016 |
 | Domaine       | providence.lan      |
-| Rôle          | AD DS, Kerberos, LDAP |
+| Rôle          | AD DS, Kerberos, LDAP|
 
 ---
 
- Services fournis
+ ### Services fournis
 
 - Active Directory Domain Services
 - Kerberos Authentication
