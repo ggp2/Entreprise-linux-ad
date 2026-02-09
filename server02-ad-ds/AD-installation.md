@@ -68,6 +68,45 @@ Vérification :
 ```powershell
         ipconfig /all
 ```
+### 4.2 Zone directe providence.lan (BIND)
+
+Sur server01, la zone directe contient au minimum :
+- dc1.providence.lan (A record)
+- Les services (mail, files, vpn, etc.)
+- Les SRV minimums nécessaires à l’AD (LDAP/Kerberos)
+
+```bash
+dc1     IN A   192.168.10.15
+
+_ldap._tcp.providence.lan.     IN SRV 0 100 389 dc1.providence.lan.
+_kerberos._tcp.providence.lan. IN SRV 0 100 88  dc1.providence.lan.
+```
+### 4.3 Zone _msdcs.providence.lan (création manuelle)
+
+Avec un DNS externe (BIND), Windows ne crée pas automatiquement la zone _msdcs.
+Or cette zone est indispensable au bon fonctionnement AD (dcdiag, localisation DC, réplication).
+
+La zone _msdcs.providence.lan a donc été créée manuellement dans BIND et contient :  
+- un CNAME basé sur le GUID du DC
+- des SRV DC (LDAP/Kerberos)
+  
+```bash
+; GUID du DC -> alias vers le nom du DC
+<GUID-DC> IN CNAME dc1.providence.lan.
+
+; SRV AD indispensables
+_ldap._tcp.dc._msdcs.providence.lan.     IN SRV 0 100 389 dc1.providence.lan.
+_kerberos._tcp.dc._msdcs.providence.lan. IN SRV 0 100 88  dc1.providence.lan.
+```
+### 4.4 Tests de validation DNS côté Windows 
+```powershell
+nslookup dc1.providence.lan 192.168.10.10
+nslookup -type=SRV _ldap._tcp.providence.lan 192.168.10.10
+nslookup -type=SRV _ldap._tcp.dc._msdcs.providence.lan 192.168.10.10
+dcdiag
+```
+
+
 ---
 
 ## 5. Finalisation
