@@ -21,7 +21,7 @@ Mettre en place un contrôleur de domaine Active Directory sur Windows Server af
 
 - Windows Server installé et à jour
 - Adresse IP fixe
-- DNS configuré vers lui-même
+- DNS configuré sur un server externe linux (ServerO2)
 - Nom d’hôte défini (dc1.providence.lan)
 
 ---
