@@ -1,11 +1,7 @@
 # Procédure d’Intégration au Domaine Active Directory
 
 ## 1. Objectif
-Intégrer le serveur Linux \*\*server07\*\* au domaine Active Directory
-
-\*\*providence.lan\*\* afin de permettre une authentification centralisée
-
-pour les services Samba.
+Intégrer le serveur Linux \*\*server07\*\* au domaine Active Directory \*\*providence.lan\*\* afin de permettre une authentification centralisée pour les services Samba.
 
 ---
 ## 2. Prérequis
@@ -16,28 +12,26 @@ pour les services Samba.
 - Résolution DNS correcte
 
 Vérification :
-
+```bash 
 ping dc1.providence.lan
 host dc1.providence.lan
 timedatectl
+```
 ---
 ## 3. Installation des Paquets
 apt install -y samba winbind krb5-user libpam-winbind libnss-winbind
 ----
 ## 4. Configuration Kerberos
-```ini
 Éditer /etc/krb5.conf
-
+```ini
 [libdefaults]
-
-&nbsp;default\_realm = PROVIDENCE.LAN
-&nbsp;dns\_lookup\_kdc = true
-&nbsp;dns\_lookup\_realm = false
-&nbsp;test 
-
+default\_realm = PROVIDENCE.LAN
+dns\_lookup\_kdc = true
+dns\_lookup\_realm = false
+test 
+```
 kinit Administrateur@PROVIDENCE.LAN
 klist
-```
 ----
 ## 5. Configuration Samba
 ```Fichier /etc/samba/smb.conf : 
