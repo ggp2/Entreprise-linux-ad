@@ -71,7 +71,7 @@ security = ADS
 realm = PROVIDENCE.LAN
 workgroup = PROVIDENCE
 
-##  integration au Domaine
+##  Integration au Domaine
 la jointure est realisé  via  : net ads join -U Administrateur
 
 ## Tests de Validation
@@ -80,7 +80,7 @@ la jointure est realisé  via  : net ads join -U Administrateur
 -wbinfo -g
 -getent passwd Administrateur
 
-##Dépannage et Résolution
+## Dépannage et Résolution
 les Principaux probleme rencontrés
 
 | Problème        | Cause                     | Solution             |
