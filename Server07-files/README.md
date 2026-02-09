@@ -70,7 +70,7 @@ Extrait :
 security = ADS
 realm = PROVIDENCE.LAN
 workgroup = PROVIDENCE
-
+```
 ##  integration au Domaine
 la jointure est realisé  via  : net ads join -U Administrateur
 
