@@ -19,8 +19,10 @@ timedatectl
 ```
 ---
 ## 3. Installation des Paquets
+```bash 
 apt install -y samba winbind krb5-user libpam-winbind libnss-winbind
-----
+```
+
 ## 4. Configuration Kerberos
 Éditer /etc/krb5.conf
 ```ini
@@ -30,17 +32,19 @@ dns\_lookup\_kdc = true
 dns\_lookup\_realm = false
 test 
 ```
+```bash
 kinit Administrateur@PROVIDENCE.LAN
 klist
+```
 ----
 ## 5. Configuration Samba
 ```Fichier /etc/samba/smb.conf : 
 [global]
-;workgroup = PROVIDENCE
-;realm = PROVIDENCE.LAN
-;security = ADS
-;winbind use default domain = yes
-;kerberos method = secrets and keytab
+workgroup = PROVIDENCE
+realm = PROVIDENCE.LAN
+security = ADS
+winbind use default domain = yes
+kerberos method = secrets and keytab
 
 Validation 
 ;testparm
@@ -50,8 +54,7 @@ Validation
 net ads join -U Administrateur 
 
 ## 6. résultat obtenu sont présenté 
-
-;sont presente sous forme de capture d'écran 
+presente sous forme de capture d'écran 
 
 ## 7. Tests de Validation
 
@@ -65,21 +68,21 @@ wbinfo -g
 getent passwd Administrateur
  
 ## 8. Validation Finale
-
-Le serveur est considéré comme intégré lorsque :
--Jointure AD réussie
--Winbind actif
--Utilisateurs visibles
--Authentification fonctionnelle
--Accès Samba opérationnel
+- Contrôleur de domaine opérationnel
+- Le serveur est considéré comme intégré lorsque :
+- Jointure AD réussie
+- Winbind actif
+- Utilisateurs visibles
+- Authentification fonctionnelle
+- Accès Samba opérationnel
 
 ## 9. Résultat
 Le serveur Linux est désormais membre du domaine Active Directory et peut être utilisé comme serveur de fichiers sécurisé.
 
-## 10. Bonnes Pratiques
--Synchroniser l’heure avec le DC
--Sauvegarder smb.conf
--Documenter les changements
--Tester après chaque modification
+## 10. Bonnes Pratique
+- Synchroniser l’heure avec le DC
+- Sauvegarder smb.conf
+- Documenter les changements
+- Tester après chaque modification
 
 ## NB un fichier de capture d'écran des resultat est mise a disposition pour l'authenticité de travail
