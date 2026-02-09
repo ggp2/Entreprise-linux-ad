@@ -20,11 +20,12 @@ Vérification :
 ping dc1.providence.lan
 host dc1.providence.lan
 timedatectl
-
+---
 ## 3. Installation des Paquets
 apt install -y samba winbind krb5-user libpam-winbind libnss-winbind
-
+----
 ## 4. Configuration Kerberos
+```ini
 Éditer /etc/krb5.conf
 
 [libdefaults]
@@ -36,25 +37,27 @@ apt install -y samba winbind krb5-user libpam-winbind libnss-winbind
 
 kinit Administrateur@PROVIDENCE.LAN
 klist
-
+```
+----
 ## 5. Configuration Samba
-Fichier /etc/samba/smb.conf : 
+```Fichier /etc/samba/smb.conf : 
 [global]
-&nbsp;workgroup = PROVIDENCE
-&nbsp;realm = PROVIDENCE.LAN
-&nbsp;security = ADS
-&nbsp;winbind use default domain = yes
-&nbsp;kerberos method = secrets and keytab
+;workgroup = PROVIDENCE
+;realm = PROVIDENCE.LAN
+;security = ADS
+;winbind use default domain = yes
+;kerberos method = secrets and keytab
 
 Validation 
-&nbsp;testparm
-
+;testparm
+```
+---
 ## 6. Jointure au Domaine
 net ads join -U Administrateur 
 
 ## 6. résultat obtenu sont présenté 
 
-&nbsp;sont presente sous forme de capture d'écran 
+;sont presente sous forme de capture d'écran 
 
 ## 7. Tests de Validation
 
