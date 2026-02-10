@@ -1,5 +1,5 @@
 ## Architecture Linux d’entreprise avec services critiques centralisés et authentification Active Directory
-- Mise en place des services d’infrastructure sous Linux (DNS, DHCP, NTP)
+- Mise en place des services d’infrastructure sous Linux (DNS, DHCP, NTP, Samba, mail, db)
 - Authentification centralisée des systèmes Linux et Windows via Active Directory
 - Intégration des machines Linux au domaine AD (SSSD, Kerberos)
 - Supervision de l’infrastructure (monitoring Linux)
@@ -35,6 +35,7 @@ Projet de type **entreprise**, simulant un environnement réel pour l’administ
 - **Samba** : Partage fichiers et intégration AD  
 - **Web** : Apache / PHP  
 - **Mail** :
+
 
 
 
