@@ -28,12 +28,12 @@ Serveur de supervision centralisée de l’infrastructure \*\*providence.lan\*\*
 systemctl status zabbix-server --no-pager
 zabbix\_server --version
 ```
-##Périmètre de supervision (exemples) 
+## Périmètre de supervision (exemples) 
 - DC1 : disponibilité, ports AD (88/389/445), charge système, événements critiques
 - server01 : DNS (53 TCP/UDP), DHCP (67 UDP), disponibilité du service named
 - server07 : Samba/Winbind, port 445, espace disque /srv/samba
 
-##Dossiers
+## Dossiers
 - zabbix-server/ : installation \& configuration Zabbix Server
 - agents/ : déploiement agents Linux/Windows + checklist
 - templates/ : items et dashboards orientés services (AD/DNS/Samba)
