@@ -1,4 +1,10 @@
-# Mise en place d’une infrastructure d’authentification centralisée Linux/Windows avec Active Directory
+## Architecture Linux d’entreprise avec services critiques centralisés et authentification Active Directory
+- Mise en place des services d’infrastructure sous Linux (DNS, DHCP, NTP, Samba, mail, db)
+- Authentification centralisée des systèmes Linux et Windows via Active Directory
+- Intégration des machines Linux au domaine AD (SSSD, Kerberos)
+- Supervision de l’infrastructure (monitoring Linux)
+- Mise en œuvre des stratégies de sauvegarde et restauration
+- Virtualisation de l’environnement avec KVM
 
 ## Objectif du projet
 Concevoir et déployer une infrastructure d’entreprise **on-premise** basée sur **Linux et Windows Server**, intégrant des services essentiels :  
@@ -29,5 +35,8 @@ Projet de type **entreprise**, simulant un environnement réel pour l’administ
 - **Samba** : Partage fichiers et intégration AD  
 - **Web** : Apache / PHP  
 - **Mail** :
+
+
+
 
 
