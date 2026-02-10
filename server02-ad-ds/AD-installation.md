@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 # Installation du rôle Active Directory (AD DS)
 
 ##  Objectif
@@ -28,28 +26,7 @@ Linux et Windows.
 - DNS configuré sur linux  (server02) 
 - Nom d’hôte défini (dc1.providence.lan)
 
----
-=======
-# Installation Active Directory – DC1
-=======
-# Installation du rôle Active Directory (AD DS)
->>>>>>> 72f1ee1738997eee3d8bee658dede5cfb40e2e07
-
-##  Objectif
-
-Mettre en place un contrôleur de domaine Active Directory sur Windows Server afin de fournir une authentification centralisée pour l’infrastructure Linux et Windows.
-
----
-<<<<<<< HEAD
 ## 2- Installation du rôle AD DS
-Via PowerShell :
->>>>>>> 026dfeaacd59c55c9c8c173d2986c76fd9892bb5
-
-## 2. Installation du rôle AD DS
-
-=======
-
-##  Environnement
 
 | Élément | Valeur              |
 |-------- |---------------------|
@@ -60,18 +37,6 @@ Via PowerShell :
 
 ---
 
-## 1. Pré-requis
-
-- Windows Server installé et à jour
-- Adresse IP fixe
-- DNS configuré sur un server externe linux (ServerO2)
-- Nom d’hôte défini (dc1.providence.lan)
-
----
-
-## 2. Installation du rôle AD DS
-
->>>>>>> 72f1ee1738997eee3d8bee658dede5cfb40e2e07
 Via le **Gestionnaire de serveur** :
 
 1. Ajouter des rôles et fonctionnalités
@@ -90,15 +55,6 @@ Après l’installation du rôle :
 3. Nom du domaine : `providence.lan`
 4. Niveau fonctionnel : Windows Server 2016
 5. Activer :
-<<<<<<< HEAD
-   - DNS
-   - Catalogue global
-
----
-## 4. Configuration DNS (DNS Linux BIND externe à AD)
-
-Dans cette infrastructure, le DNS **n’est pas hébergé sur Windows Server**.
-=======
    - Catalogue global
    !!!!!!! Dans mon cas DNS non integrer a ADDS
 
@@ -107,7 +63,6 @@ Dans cette infrastructure, le DNS **n’est pas hébergé sur Windows Server**.
 ## 4. Configuration DNS (DNS Linux BIND externe à AD)
 
 Dans mon infrastructure, le DNS **n’est pas hébergé sur Windows Server**.
->>>>>>> 72f1ee1738997eee3d8bee658dede5cfb40e2e07
 La résolution est assurée par **server01 (BIND)**, et le contrôleur de domaine
 (DC1) dépend de ce DNS externe pour publier et résoudre les enregistrements AD.
 
@@ -120,33 +75,9 @@ Sur le contrôleur de domaine, la carte réseau doit utiliser **uniquement** le 
 Vérification :
 
 ```powershell
-<<<<<<< HEAD
-<<<<<<< HEAD
 ipconfig /all
-
-
----
-
-## 5. Finalisation
-
-- Redémarrage automatique du serveur
-- Vérification des services :
-  - AD DS
-  - DNS
-  - Kerberos
-  - Netlogon
-
-Commande de vérification :
-
-```powershell
-dcdiag
-=======
-
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-=======
-        ipconfig /all
->>>>>>> 72f1ee1738997eee3d8bee658dede5cfb40e2e07
 ```
+---
 ### 4.2 Zone directe providence.lan (BIND)
 
 Sur server01, la zone directe contient au minimum :
@@ -202,17 +133,6 @@ Commande de vérification :
 ```powershell
 dcdiag
 <<<<<<< HEAD
-Get-ADDomain
+Get-ADDom
 ```
-
-
-
-
-
-
->>>>>>> 026dfeaacd59c55c9c8c173d2986c76fd9892bb5
-
-=======
->>>>>>> 72f1ee1738997eee3d8bee658dede5cfb40e2e07
-
 ## NB: un pdf de capture d'ecran de server hébergeant ADDS est fourni ainsi qu'un ensembele cheklist de verification
