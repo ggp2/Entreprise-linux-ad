@@ -16,8 +16,8 @@ Serveur de supervision centralisée de l’infrastructure \*\*providence.lan\*\*
 | Réseau NAT      | 10.0.2.15/24 (enp0s3)     |
 
 ##  Architecture réseau
-- \*\*Interface LAN (192.168.10.0/24)\*\* : collecte des métriques depuis les serveurs internes (AD, DNS/DHCP, Samba…)
-- \*\*Interface NAT (10.0.2.0/24)\*\* : accès Internet pour mises à jour OS et paquets Zabbix
+- Interface LAN (192.168.10.0/24)\*\* : collecte des métriques depuis les serveurs internes (AD, DNS/DHCP, Samba…)
+- Interface NAT (10.0.2.0/24)\*\* : accès Internet pour mises à jour OS et paquets Zabbix
 
 ##  Preuves de fonctionnement
 
@@ -29,16 +29,15 @@ systemctl status zabbix-server --no-pager
 zabbix\_server --version
 ```
 ##Périmètre de supervision (exemples) 
-DC1 : disponibilité, ports AD (88/389/445), charge système, événements critiques
-server01 : DNS (53 TCP/UDP), DHCP (67 UDP), disponibilité du service named
-server07 : Samba/Winbind, port 445, espace disque /srv/samba
+- DC1 : disponibilité, ports AD (88/389/445), charge système, événements critiques
+- server01 : DNS (53 TCP/UDP), DHCP (67 UDP), disponibilité du service named
+- server07 : Samba/Winbind, port 445, espace disque /srv/samba
 
 ##Dossiers
-
-zabbix-server/ : installation \& configuration Zabbix Server
-agents/ : déploiement agents Linux/Windows + checklist
-templates/ : items et dashboards orientés services (AD/DNS/Samba)
-troubleshooting/ : incidents et correctif
+- zabbix-server/ : installation \& configuration Zabbix Server
+- agents/ : déploiement agents Linux/Windows + checklist
+- templates/ : items et dashboards orientés services (AD/DNS/Samba)
+- troubleshooting/ : incidents et correctif
 
 
 
