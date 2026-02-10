@@ -1,96 +1,82 @@
-\# Zabbix Monitoring
+\# Server06 – Monitoring (Zabbix)
 
 
 
-Supervision d’une infrastructure locale (Linux/Windows services) avec \*\*Zabbix\*\* : disponibilité, ressources système, services critiques, alerting et dashboards.
+\##  Rôle
+
+Serveur de supervision centralisée de l’infrastructure \*\*providence.lan\*\*
+
+(Zabbix Server + Frontend + DB MariaDB).
 
 
 
-\## Objectif
-
-Mettre en place une supervision centralisée sur un serveur dédié (`monitor`) pour surveiller l’état des hôtes et services d’un domaine interne `providence.lan`.
+\##  Informations système
 
 
 
-\## Architecture
+| Élément         | Valeur                    |
 
-| Host                    | Rôle              | IP            |
+|-----------------|---------------------------|
 
-|-------------------------|-------------------|---------------|
+| Hostname        | server06                  |   
 
-| server01.providence.lan | DNS / Infra       | 192.168.10.10 |
+| OS              | Ubuntu 24.04.3 LTS        |
 
-| dc1.providence.lan      | Active Directory  | 192.168.10.15 |
+| Hyperviseur     | VirtualBox                |
 
-| monitor.providence.lan  | ZabbixS +Frontend | 192.168.10.20 |
+| Zabbix          | 7.0.22                    |
 
-| files.providence.lan    | File Server       | 192.168.10.30 |
+| Base de données | MariaDB                   |
 
-| mail.providence.lan     | Mail Server       | 192.168.10.40 |
+| Réseau LAN      | 192.168.10.20/24 (enp0s8) |
 
-| www.providence.lan      | Web Server        | 192.168.10.50 |
-
-| vpn.providence.lan      | VPN Server        | 192.168.10.60 |
+| Réseau NAT      | 10.0.2.15/24 (enp0s3)     |
 
 
 
-\## Stack
+\##  Architecture réseau
 
-\- Zabbix Server + Frontend Web
+\- \*\*Interface LAN (192.168.10.0/24)\*\* : collecte des métriques depuis les serveurs internes (AD, DNS/DHCP, Samba…)
 
-\- MariaDB
-
-\- Zabbix Agent (Linux)
-
-\- (Option) Zabbix Agent2 / Windows Agent pour `dc1`
+\- \*\*Interface NAT (10.0.2.0/24)\*\* : accès Internet pour mises à jour OS et paquets Zabbix
 
 
 
-\## Installation (résumé)
-
-\- Installer Zabbix Server sur `monitor`
-
-\- Installer Zabbix Agent sur chaque hôte
-
-\- Ajouter les hôtes dans Zabbix + appliquer les templates
-
-\- Configurer alertes (CPU/RAM/DISK/Host down/Service down)
+\##  Preuves de fonctionnement
 
 
 
-\## Supervision
+\### Zabbix Server
 
-\- Disponibilité des hôtes (ICMP)
+```bash
 
-\- Ressources : CPU, RAM, Disque, Load, Réseau
+systemctl status zabbix-server --no-pager
 
-\- Services : SSH (22), DNS (53), HTTP/HTTPS (80/443), SMTP (25), LDAP (389), Kerberos (88), VPN (port selon service)
+zabbix\_server --version
 
+```
 
+\##Périmètre de supervision (exemples)
 
-\## Alerting (exemples)
+DC1 : disponibilité, ports AD (88/389/445), charge système, événements critiques
 
-\- Host down : immédiat
+server01 : DNS (53 TCP/UDP), DHCP (67 UDP), disponibilité du service named
 
-\- Disque > 80%
-
-\- CPU > 90%
-
-\- Service down : immédiat
+server07 : Samba/Winbind, port 445, espace disque /srv/samba
 
 
 
-\## Démo / preuves
-
-Captures d’écran : `docs/screenshots/`
-
-Tests : `tests.md`
+\##Dossiers
 
 
 
-\## Compétences mises en œuvre
+zabbix-server/ : installation \& configuration Zabbix Server
 
-Linux, réseau TCP/IP, supervision Zabbix, agents, templates, triggers, alerting, documentation.
+agents/ : déploiement agents Linux/Windows + checklist
+
+templates/ : items et dashboards orientés services (AD/DNS/Samba)
+
+troubleshooting/ : incidents et correctif
 
 
 
