@@ -29,10 +29,10 @@ pour le développement de compétences en administration systèmes et réseaux.
 |----------|-----------------------|---------------|
 | server01 | DNS / DHCP (Linux)    | 192.168.10.10 |
 | dc1 	   | Contrôleur AD (Windows)| 192.168.10.15|
-| server03 | Web / App             | 192.168.10.20 |
-| server04 |                       | 192.168.10.30 |
-| server05 | Messagerie            | 192.168.10.2 0|
-| server06 | Monitoring / Backup   | 192.168.10.154|
+| server03 | Web / fichies         | 192.168.10.50 |
+| server04 |                       | 192.168.10.40 |
+| server05 | Messagerie            | 192.168.10.30 |
+| server06 | Monitoring / Backup   | 192.168.10.20 |
 | server07 | Fichiers (Samba)      | 192.168.10.50 |
 
 ---
