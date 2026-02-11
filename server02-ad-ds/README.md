@@ -1,8 +1,8 @@
 ## Server02 – Active Directory Domain Services (AD DS)
 
-#  Infrastructure Active Directory Linux & Windows
+##  Infrastructure Active Directory Linux & Windows
 
-##  Présentation
+### Présentation
 
 Ce projet présente la conception et la mise en œuvre d’une infrastructure
 informatique d’entreprise basée sur Linux et Windows Server, intégrant
@@ -62,7 +62,6 @@ pour le développement de compétences en administration systèmes et réseaux.
 
 ##  Structure du Projet
 
-```bash
 .
 ├─- architecture/
 ├── server01-dns-dhcp/
@@ -76,65 +75,45 @@ pour le développement de compétences en administration systèmes et réseaux.
 
 ## Sécurité
 
--Authentification centralisée AD 
-
--Kerberos pour Linux
-
--Groupes AD pour contrôle d’accès
-
--Pare-feu et VPN
-
--Séparation des rôles serveurs
-
+-  Authentification centralisée AD
+- Kerberos pour Linux
+- Groupes AD pour contrôle d’accès
+- Pare-feu et VPN
+- Séparation des rôles serveurs
+----
 ## Fonctionnalités Principales
-
--Domaine Active Directory opérationnel
--DNS Linux externe à AD
--Jointure Linux via SSSD/Winbind
--Partages réseau sécurisés
--Messagerie interne
--Supervision réseau
--Accès distant VPN
+-  Domaine Active Directory opérationnel
+-  DNS Linux externe à AD
+-  Jointure Linux via SSSD/Winbind
+-  Partages réseau sécurisés
+-  Messagerie interne
+-  Supervision réseau
+-  Accès distant VPN
 
 ##Documentation
 
-###Chaque serveur dispose d’une documentation dédiée :
--Installation
-
--Configuration
-
--Dépannage
-
--Bonnes pratiques
-
+### Chaque serveur dispose d’une documentation dédiée :
+-  Installation
+-  Configuration
+-  Dépannage
+-  Bonnes pratiques
 Voir le dossier /docs.
 
 ### Validation & Tests
 
 dcdiag
-
 nslookup / dig
-
 kinit / klist
-
 wbinfo
-
 realm list
-
 Tests Samba
-
 Tests VPN
 
 ### Perspectives d’Amélioration
 
--Haute disponibilité (HA)
-
--PKI interne
-
--MFA
-
--Sauvegarde centralisée
-
--Monitoring avancé
-
--Cloud hybride
+-  Haute disponibilité (HA)
+- PKI interne
+- MFA
+- Sauvegarde centralisée
+- Monitoring avancé
+- Cloud hybride
