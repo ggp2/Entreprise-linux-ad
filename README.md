@@ -32,12 +32,12 @@ Réseau : 192.168.10.0/24
 | mail     | CentOS 7       | Mail Server | 192.168.10.30 |
 | files    | Ubuntu 22.04   | Samba       | 192.168.10.50 |
 | monitor  | Ubuntu 22.04   | Zabbix      | 192.168.10.20 |
-|web       |Ubuntu 22.04    |             |
+|web       |Ubuntu 22.04    | Apache      |192.168.10.50  | 
 Accès Internet via hotspot mobile (NAT).
 
 ---
 
-## 🧩 Services Déployés
+##  Services Déployés
 
 ### 🔹 Active Directory
 - Domaine : providence.lan
@@ -114,3 +114,4 @@ Accès Internet via hotspot mobile (NAT).
 ## 📂 Structure du dépôt
 
 ```bash
+
