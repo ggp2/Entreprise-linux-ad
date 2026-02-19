@@ -58,6 +58,23 @@ et de la résolution des noms au sein du réseau interne.
 Ces fichiers permettent d’assurer une communication fiable entre les serveurs,
 le contrôleur de domaine et les postes clients.
 
+## Synchronisation Horaire (NTP)
+
+Le serveur utilise Chrony synchronisé sur le contrôleur de domaine.
+
+Source principale :
+- 192.168.10.15 (DC1)
+
+Objectif :
+- Stabilité Kerberos
+- Authentification AD fiable
+- Pas de dérive temporelle
+
+Validation :
+chronyc sources -v
+chronyc tracking
+
+
 
 
 
